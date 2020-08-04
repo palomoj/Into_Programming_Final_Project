@@ -23,7 +23,7 @@ def getWeather(weather_Search_Value):
 				print('Connection Successful!')
 				return dataC
 			else:
-				print('Connection unsuccesfful or your search did not return any results. Please try again.')
+				print('\nConnection unsuccesfful or your search did not return any results. Please try again.\n')
 				program_Main()
 			
 
@@ -40,7 +40,7 @@ def getWeather(weather_Search_Value):
 				print('Connection Successful!')
 				return dataZ
 			else:
-				print('Connection unsuccesfful or your search did not return any results. Please try again.')
+				print('\nConnection unsuccesfful or your search did not return any results. Please try again.\n')
 				program_Main()
 		
 
@@ -103,7 +103,11 @@ def program_Main():
 		choiceNumber = searchCoice()
 		weather_Search_Value = searchLocation(choiceNumber)
 		output = getWeather(weather_Search_Value)
-		formatOutput(output)
+
+		try:
+			formatOutput(output)
+		except TypeError:
+			break
 		
 		continueSearch = input('Would you like to search again? (yes or no): ')
 		if continueSearch == 'no' or 'n':
